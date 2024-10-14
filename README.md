@@ -1,2 +1,25 @@
-# fullstackopen-exercises
-Exercises and projects completed as part of the Full Stack Open course (https://fullstackopen.com/)
+# Full Stack Open Exercises
+
+This repository contains my exercise submissions for the [Full Stack Open](https://fullstackopen.com/en/) course.
+
+## Progress
+
+- [ ] Part 0
+  - [ ] Exercises 0.1-0.6
+
+## Directory Structure
+
+```
+part0
+  # Exercise files for Part 0
+```
+
+## Notes
+
+- Exercises are submitted one part at a time.
+- Each part has its own directory, which contains the exercise files.
+- The `main` branch contains the latest submitted exercises.
+
+## Course Information
+
+For more information about the course, visit [Full Stack Open](https://fullstackopen.com/en/).
