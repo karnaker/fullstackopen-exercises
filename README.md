@@ -4,8 +4,8 @@ This repository contains my exercise submissions for the [Full Stack Open](https
 
 ## Progress
 
-- [ ] Part 0
-  - [ ] Exercises 0.1-0.6
+- [x] Part 0
+  - [x] Exercises 0.1-0.6
 
 ## Directory Structure
 
