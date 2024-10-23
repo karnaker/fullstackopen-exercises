@@ -1,3 +1,12 @@
+const Part = (props) => {
+  console.log('Part props:', props)
+  return (
+    <div>
+      <p>{props.partName} {props.exerciseCount}</p>
+    </div>
+  )
+}
+
 const Header = (props) => {
   console.log('Header props:', props)
   return (
@@ -11,9 +20,9 @@ const Content = (props) => {
   console.log('Content props:', props)
   return (
     <div>
-      <p>{props.part1} {props.exercises1}</p>
-      <p>{props.part2} {props.exercises2}</p>
-      <p>{props.part3} {props.exercises3}</p>
+      <Part partName={props.part1} exerciseCount={props.exercises1} />
+      <Part partName={props.part2} exerciseCount={props.exercises2} />
+      <Part partName={props.part3} exerciseCount={props.exercises3} />
     </div> 
   )
 }
