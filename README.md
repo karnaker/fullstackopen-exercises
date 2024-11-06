@@ -7,7 +7,8 @@ This repository contains my exercise submissions for the [Full Stack Open](https
 - [x] Part 0
   - [x] Exercises 0.1-0.6
 - [ ] Part 1
-  - [ ] Exercises 1.1-1.2 (in progress)
+  - [x] Exercises 1.1-1.3
+  - [ ] Exercises 1.4-1.14 (in progress)
 
 ## Directory Structure
 
@@ -16,7 +17,7 @@ part0
   # Exercise files for Part 0
 part1
   courseinfo
-    # React application for Exercises 1.1-1.2
+    # React application for Exercises 1.1-1.3
 ```
 
 ## Notes
