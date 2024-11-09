@@ -1,5 +1,7 @@
 const Part = ({ part }) => {
-  console.log('Part props:', {part} )
+  console.log('Part - received part:', part)
+  console.log('Part - name:', part.name)
+  console.log('Part - exercises:', part.exercises)
   return (
     <div>
       <p>{part.name} {part.exercises}</p>
@@ -7,68 +9,68 @@ const Part = ({ part }) => {
   )
 }
 
-const Header = (props) => {
-  console.log('Header props:', props)
+const Header = ({course}) => {
+  console.log('Header - received course:', course)
   return (
     <div>
-      <h1>{props.course}</h1> 
+      <h1>{course}</h1> 
     </div> 
   )
 }
 
-const Content = ({ part1, part2, part3 }) => {
-  console.log('Content props:', { part1, part2, part3 })
+const Content = ({ parts }) => {
+  console.log('Content - received parts:', parts)
+  console.log('Content - number of part:', parts.length)
   return (
     <div>
-      <Part part={part1} />
-      <Part part={part2} />
-      <Part part={part3} />
-    </div> 
+      <Part part={parts[0]} />
+      <Part part={parts[1]} />
+      <Part part={parts[2]} />
+    </div>
   )
 }
 
-const Total = ({ part1, part2, part3 }) => {
-  console.log('Total props:', { part1, part2, part3 })
+const Total = ({ parts }) => {
+  const totalExercises = parts[0].exercises + parts[1].exercises + parts[2].exercises
+
+  console.log('Total - received parts:', parts)
+  console.log('Total - calculated sum:', totalExercises)
+  console.log('Total - exercises breakdown:', parts.map(part => part.exercises).join(' + '))
+  
   return (
     <div>
-      <p>Number of exercises {part1.exercises + part2.exercises + part3.exercises}</p> 
+      <p>Number of exercises {totalExercises}</p> 
     </div> 
   )
 }
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = {
-    name: 'Fundamentals of React',
-    exercises: 10
-  }
-  const part2 = {
-    name: 'Using props to pass data',
-    exercises: 7
-  }
-  const part3 = {
-    name: 'State of a component',
-    exercises: 14
-  }
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
 
-  console.log('course:', course)
-  console.log('part1:', part1)
-  console.log('part2:', part2)
-  console.log('part3:', part3)
+  console.log('App - course:', course)
+  console.log('App - parts:', parts)
+  console.log('App - parts array length:', parts.length)
+  console.log('App - first part:', parts[0])
 
   return (
     <div>
       <Header course={course} />
-      <Content 
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
-      <Total
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
+      <Content parts={parts} />
+      <Total parts={parts} />
     </div>
   )
 }
