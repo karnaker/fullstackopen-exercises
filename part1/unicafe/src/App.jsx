@@ -9,13 +9,38 @@ const Button = ({ handleClick, text }) => {
 }
 
 const Statistics = ({ good, neutral, bad }) => {
-  console.log('Statistics rendered with values - good:', good, 'neutral:', neutral, 'bad:', bad)
+  // Calculate total feedback count
+  const total = good + neutral + bad
+
+  // Calculate average feedback score
+  // Good feedback is worth 1, neutral 0, bad -1
+  const average = total === 0
+    ? 0
+    : (good * 1 + bad * -1) / total
+  
+  // Calculate positive feedback percentage
+  const positive = total === 0
+    ? 0
+    : (good / total) * 100
+
+  // Debug logs to verify our calculations
+  console.log('Statistics component - current values:')
+  console.log('good:', good, '(weight: 1)')
+  console.log('neutral:', neutral, '(weight: 0)')
+  console.log('bad:', bad, '(weight: -1)')
+  console.log('total:', total)
+  console.log('average:', average)
+  console.log('percent positive:', positive, '%')
+
   return (
     <div>
       <h1>statistics</h1>
       good {good}<br/>
       neutral {neutral}<br/>
-      bad {bad}
+      bad {bad}<br/>
+      all {total}<br/>
+      average {average}<br/>
+      positive {positive} %
     </div>
   )
 }
