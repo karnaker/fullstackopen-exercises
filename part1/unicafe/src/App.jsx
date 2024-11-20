@@ -32,6 +32,16 @@ const Statistics = ({ good, neutral, bad }) => {
   console.log('average:', average)
   console.log('percent positive:', positive, '%')
 
+  // Conditional check for no feedback
+  if (total === 0) {
+    return (
+      <div>
+        <h1>statistics</h1>
+        No feedback given
+      </div>
+    )
+  }
+
   return (
     <div>
       <h1>statistics</h1>
