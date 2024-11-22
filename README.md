@@ -6,7 +6,7 @@ This repository contains my exercise submissions for the [Full Stack Open](https
 
 - [x] Part 0
   - [x] Exercises 0.1-0.6
-- [ ] Part 1
+- [x] Part 1
   - [x] Exercises 1.1-1.14
 
 ## Directory Structure
