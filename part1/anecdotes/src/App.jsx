@@ -1,5 +1,16 @@
 import { useState } from 'react'
 
+// Header component
+const Header = ({ text }) => <h1>{text}</h1>
+
+// Anecdote display component
+const AnecdoteDisplay = ({ text, votes }) => (
+  <div>
+    <div>{text}</div>
+    <div>has {votes} votes</div>
+  </div>
+)
+
 const App = () => {
   // Static data - array of anecdotes
   const anecdotes = [
@@ -18,6 +29,14 @@ const App = () => {
   const [selected, setSelected] = useState(0)
   // Initialize votes array with zeroes matching the length of the anecdotes array
   const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
+
+  // Find index of most voted anecdote
+  const getMostVotedIndex = () => {
+    const maxVotes = Math.max(...votes)
+    const index = votes.indexOf(maxVotes)
+    console.log('Most voted index:', index, 'with', maxVotes, 'votes')
+    return index
+  }
 
   // Random number generator function
   const getRandomIndex = () => {
@@ -41,22 +60,29 @@ const App = () => {
     setVotes(newVotes)
   }
 
+  // Get the index of the most voted anecdote
+  const mostVotedIndex = getMostVotedIndex()
+
   // Debug logs
   console.log('App rendered, current state:', {
     selected,
     votes,
     'votes length': votes.length,
-    'anecdotes length': anecdotes.length
+    'anecdotes length': anecdotes.length,
+    'most voted index': mostVotedIndex
   })
 
   return (
     <div>
-      <div>{anecdotes[selected]}</div>
-      <div>has {votes[selected]} votes</div>
+      <Header text="Anecdote of the day" />
+      <AnecdoteDisplay text={anecdotes[selected]} votes={votes[selected]} />
       <div>
         <button onClick={handleVote}>vote</button>
         <button onClick={handleNextAnecdote}>next anecdote</button>
       </div>
+
+      <Header text="Anecdote with most votes" />
+      <AnecdoteDisplay text={anecdotes[mostVotedIndex]} votes={votes[mostVotedIndex]} />
     </div>
   )
 }
