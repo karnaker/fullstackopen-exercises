@@ -13,8 +13,11 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
-  // Dynamic state - tracks which anecdote is currently selected
+  // Dynamic states
+  // Tracks which anecdote is currently selected
   const [selected, setSelected] = useState(0)
+  // Initialize votes array with zeroes matching the length of the anecdotes array
+  const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
 
   // Random number generator function
   const getRandomIndex = () => {
@@ -30,13 +33,30 @@ const App = () => {
     setSelected(newIndex)
   }
 
+  // Handler for vote button
+  const handleVote = () => {
+    console.log('Before vote - Current votes:', votes)
+    const newVotes = [...votes]
+    newVotes[selected] += 1
+    setVotes(newVotes)
+  }
+
   // Debug logs
-  console.log('App rendered, current selected index:', selected)
+  console.log('App rendered, current state:', {
+    selected,
+    votes,
+    'votes length': votes.length,
+    'anecdotes length': anecdotes.length
+  })
 
   return (
     <div>
       <div>{anecdotes[selected]}</div>
-      <button onClick={handleNextAnecdote}>Next anecdote</button>
+      <div>has {votes[selected]} votes</div>
+      <div>
+        <button onClick={handleVote}>vote</button>
+        <button onClick={handleNextAnecdote}>next anecdote</button>
+      </div>
     </div>
   )
 }
