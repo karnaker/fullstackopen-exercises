@@ -11,6 +11,11 @@ const AnecdoteDisplay = ({ text, votes }) => (
   </div>
 )
 
+// Button component
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>{text}</button>
+)
+
 const App = () => {
   // Static data - array of anecdotes
   const anecdotes = [
@@ -77,8 +82,8 @@ const App = () => {
       <Header text="Anecdote of the day" />
       <AnecdoteDisplay text={anecdotes[selected]} votes={votes[selected]} />
       <div>
-        <button onClick={handleVote}>vote</button>
-        <button onClick={handleNextAnecdote}>next anecdote</button>
+        <Button handleClick={handleVote} text="vote" />
+        <Button handleClick={handleNextAnecdote} text="next anecdote" />
       </div>
 
       <Header text="Anecdote with most votes" />
