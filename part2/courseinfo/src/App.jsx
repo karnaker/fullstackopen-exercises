@@ -30,15 +30,30 @@ const Course = ({ course }) => {
   // Verify props
   console.log('Course component received course:', course)
 
+  // Calculate the total number of exercises
+  const totalExercises = course.parts.reduce((sum, part) => {
+    console.log('Current sum:', sum, 'Adding:', part.exercises)
+    return sum + part.exercises
+  }, 0) // The zero is the initial value of the sum
+
+  console.log('Total exercises calculated:', totalExercises)
+
   return (
     <div>
       <Header courseName={course.name} />
       <Content parts={course.parts} />
+      <Total sum={totalExercises} />
     </div>
   )
 }
 
-const Total = ({ sum }) => <p>Number of exercises {sum}</p>
+// Total component displays the sum of exercises for a course
+// Props:
+//   sum: number - The total number of exercises to display
+const Total = ({ sum }) => {
+  console.log('Total component received sum:', sum)
+  return <p><strong>Number of exercises {sum}</strong></p>
+}
 
 const App = () => {
   const course = {
