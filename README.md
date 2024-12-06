@@ -9,8 +9,8 @@ This repository contains my exercise submissions for the [Full Stack Open](https
 - [x] Part 1
   - [x] Exercises 1.1-1.14
 - [ ] Part 2
-  - [x] Exercises 2.1-2.4
-  - [ ] Exercises 2.5-2.20 (in progress)
+  - [x] Exercises 2.1-2.5
+  - [ ] Exercises 2.6-2.20 (in progress)
 
 ## Directory Structure
 
@@ -26,7 +26,7 @@ part1
     # React application for Exercises 1.6-1.11
 part2
   courseinfo
-    # React application for Exercises 2.1-2.4
+    # React application for Exercises 2.1-2.5
 ```
 
 ## Notes
